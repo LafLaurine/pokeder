@@ -1,12 +1,20 @@
 body {
-    background: #f9fdfe;
-    color: #686a69;
-    font-family: 'Open Sans', sans-serif;
+    color: black;
+    font-family: Lato, sans-serif;
     font-size: 18px;
-}
-* {
     margin: 0;
-    padding: 0;
+}
+body::before{
+    content: '';
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter:blur(7px) grayscale(70%);
 }
 
 
@@ -20,6 +28,7 @@ body {
     transform: translateX(0px);
     border: none;
     margin: 10px;
+    padding: 3px 7px 2px 7px;
 }
 #bouton img{
     width: 30px;
@@ -47,9 +56,12 @@ nav {
 /* Main */
 h1, h2 {
     color: #2a2f2c;
-    font-family: Lato, sans-serif;
+    font-weight: bold;
     font-weight: 300;
     line-height: 1.125;
+}
+h1{
+    text-align: center;
 }
 .firstPar{
     margin-left: 50px;
@@ -57,11 +69,17 @@ h1, h2 {
 main{
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-content: center;
     align-items: center;
+    height: 100vh;
 }
-
+#content{
+    margin-top: 50px;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 #pokemon {
     display: flex;
     flex-wrap: wrap;
@@ -70,7 +88,24 @@ main{
 
 
 form {
-    margin-top: 5em;
+    margin-top: 20px;
+    width: 500px;
+}
+.divs{
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0;
+}
+.label{
+    display: block;
+    width: 150px;
+}
+#gender-female, #gender-male{
+    margin: 5px 10px;
+}
+#pokeType{
+    width: 150px;
+    margin-left: 20px;
 }
 
 
