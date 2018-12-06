@@ -110,6 +110,23 @@ form {
 
 
 
+/* Slider */ 
+.section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.lesDiv img {
+    width: 300px;
+}
+.lesDiv p {
+    width: 200px;
+}
+.active{
+    display: block;
+}
+
 
 
 

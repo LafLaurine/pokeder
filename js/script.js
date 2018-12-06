@@ -25,17 +25,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
     };
 
 
+   
 
-
-    
-    
-    
-
-
-    var bouton = document.querySelector("#bouton");
-    bouton.addEventListener("click", appMenu);
-
-    var slideIndex = 1;
+    /*var slideIndex = 1;
     showDivs(slideIndex);
 
     function plusDivs(n) {
@@ -55,14 +47,9 @@ document.addEventListener("DOMContentLoaded", function (event) {
             x[i].style.display = "none";
         }
         x[slideIndex - 1].style.display = "block";
-    }
+    }*/
 
-    function appMenu(evt) {
-        var menu = document.querySelector("nav");
-        this.classList.toggle("decale");
-        menu.classList.toggle("actived");
-    }
-
+    
 
 
 
