@@ -22,9 +22,9 @@
     </nav>
     <main>
        <button type="button" id="bouton"><img src="img/menu_icon.png" alt="menu"/> </button>
-        <h1>Pokemon</h1>
+        <h1>Page slider</h1>
         <section id="sectionImg" class="section">
-            <div class="lesDiv">
+            <div class="lesDiv divActive">
                 <img src="img/totoroImage1.jpg" alt="blabla" />
                 <p>Texte 1 : Suspendisse consectetur aliquam ipsum, nec fringilla lorem fermentum lacinia. Vestibulum ultrices ac tortor at laoreet. In commodo elit magna, a semper turpis volutpat ac. Cras egestas fermentum dictum.</p>
             </div>
@@ -44,11 +44,12 @@
                 <img src="img/totoroImage5.jpg" alt="blabla" />
                 <p>Texte 5 : Suspendisse consectetur aliquam ipsum, nec fringilla lorem fermentum lacinia. Vestibulum ultrices ac tortor at laoreet. In commodo elit magna, a semper turpis volutpat ac. Cras egestas fermentum dictum.</p>
             </div>
+            <section class="sectionBtnSlide">
+                <button id="leftButton" class="btnSlide" onclick="plusDivs(-1)"><img src="img/flecheG.png" alt="fleche vers la gauche"/> </button>
+                <button id="rightButton" onclick="plusDivs(+1)" class="btnSlide"><img src="img/flecheD.png" alt="fleche vers la droite"/></button>
+            </section>
         </section>
-        <section class="section">
-            <button id="leftButton" onclick="plusDivs(-1)">&#10094;</button>
-            <button id="rightButton" onclick="plusDivs(+1)">&#10095;</button>
-        </section>
+        
     </main>
     <script src="js/slider.js"></script>
     <script src="js/menu.js"></script>
