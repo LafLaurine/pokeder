@@ -1,0 +1,4 @@
+Il manque : 
+- Media queries
+- Dynamic modification of the dom --> modifier Who are you par Hello machin
+- Javascript callback ?

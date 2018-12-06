@@ -23,7 +23,7 @@
     <main>
        <button type="button" id="bouton"><img src="img/menu_icon.png" alt="menu"/> </button>
         <section id="content">
-            <h1 class="firstPar">Who are you ?</h1>
+            <h1 class="firstPar" id="who">Who are you ?</h1>
             <p class=" firstPar">Use this handy contact form to get in touch with others that like the same Poke as you !</p>
             <form>
                 <div class="divs">
@@ -52,9 +52,8 @@
                     <label for="gender-male" class="label">Male</label>
                     <input id="gender-female" name="Female" type="radio" value="female" />
                     <label for="gender-female" class="label">Female</label>
-
                 </div>
-                <div class="divs">
+                <div class="divs" id="divFavorite">
                     <label for="pokeFav">What's your favorite Pokemon ?</label>
                     <div id="pokemon">
                     </div>
@@ -64,10 +63,9 @@
                 <div class="divs">
                     <label for="pokeType">Pokemon's favorite type</label>
                     <select id="pokeType" name="pokeType" multiple>
-
                     </select>
                 </div>
-                <button type="submit" id="sendIt"><img src="img/btnSendIt.png"/> </button>
+                <input type="submit" id="sendIt" value="Send it">
             </form>
         </section>
         <div class="results">

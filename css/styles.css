@@ -4,7 +4,8 @@ body {
     font-size: 18px;
     margin: 0;
 }
-body::before{
+
+body::before {
     content: '';
     background-image: url(../img/background.jpg);
     background-size: cover;
@@ -14,12 +15,12 @@ body::before{
     top: 0;
     left: 0;
     z-index: -1;
-    filter:blur(7px) grayscale(70%);
+    filter: blur(7px) grayscale(70%);
 }
 
 /* Nav */
-#bouton{
-    transition: all 1s cubic-bezier(0.65,0.01,0.3,1);
+#bouton {
+    transition: all 1s cubic-bezier(0.65, 0.01, 0.3, 1);
     position: fixed;
     top: 0;
     left: 0;
@@ -30,60 +31,89 @@ body::before{
     background: none;
     border: none;
 }
-#bouton img{
+
+#bouton img {
     width: 30px;
 }
+
 nav {
     width: 300px;
     height: 100vh;
-    background-color: aqua;
+    background-color: rgba(100, 100, 100, 0.3);
     margin: 0;
     position: fixed;
     top: 0;
     left: 0;
     transform: translateX(-300px);
-    transition: transform 1s cubic-bezier(0.65,0.01,0.3,1);
+    transition: transform 1s cubic-bezier(0.65, 0.01, 0.3, 1);
 }
-.actived{
+
+.actived {
     transform: translateX(0px);
 }
-.decale{
-    transform: translateX(300px)!important;
+
+.decale {
+    transform: translateX(300px) !important;
 }
 
 
 
 /* Main */
-h1, h2 {
+h1,
+h2 {
     color: #2a2f2c;
     font-weight: bold;
     font-weight: 300;
     line-height: 1.125;
 }
-h1{
+
+h1 {
     text-align: center;
 }
-.firstPar{
+
+#who {
+    animation: title 5s linear infinite normal;
+}
+
+@keyframes title {
+    0%, 10%, 20%, 100% {
+        transform: translateY(0);
+    }
+    
+    5% {
+        transform: translateY(-20px);
+    }
+
+    15% {
+        transform: translateY(-10px);
+    }
+}
+
+.firstPar {
     margin-left: 50px;
 }
-main{
+
+main {
     display: flex;
     flex-direction: column;
     align-content: center;
     align-items: center;
     min-height: 100vh;
 }
-#content{
+
+#content {
     margin-top: 50px;
     width: 800px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 #pokemon {
     display: flex;
     flex-wrap: wrap;
 }
+
 /* Form */
 form {
     margin-top: 20px;
@@ -92,70 +122,100 @@ form {
     display: flex;
     flex-direction: column;
 }
-.divs{
+
+.divs {
     display: flex;
     flex-direction: row;
     margin: 15px 0;
 }
-.label{
+
+#divFavorite {
+    flex-direction: column;
+}
+
+#divFavorite label {
+    margin-bottom: 10px;
+}
+
+.label {
     display: block;
     width: 150px;
 }
-#gender-female, #gender-male{
+
+#gender-female,
+#gender-male {
     margin: 5px 10px;
 }
-#pokeType{
+
+#pokemon img {
+    width: 120px;
+    height: 120px;
+}
+
+#pokeType {
     width: 150px;
     margin-left: 20px;
 }
-#sendIt{
-    background: none;
+
+#sendIt {
+    background-image: url(../img/btnSendIt.png);
+    background-size: contain;
+    background-color: rgba(0, 0, 0, 0);
+    background-repeat: no-repeat;
+    background-position: center;
+    color: rgba(0, 0, 0, 0);
     border: none;
     height: 100px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
 }
-#sendIt img{
-    height: 70px;
-}
 
 
-
-/* Slider */ 
-.section, .sectionBtnSlide{
+/* Slider */
+.section,
+.sectionBtnSlide {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-content: center;
 }
-.sectionBtnSlide{
+
+.sectionBtnSlide {
     flex-direction: row;
 }
-.lesDiv{
+
+.lesDiv {
     display: none;
 }
-.divActive{
+
+.divActive {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .lesDiv img {
     width: 300px;
 }
+
 .lesDiv p {
     width: 250px;
     text-align: justify;
 }
-.active{
+
+.active {
     display: block;
 }
-.btnSlide{
+
+.btnSlide {
     margin: 0 100px;
 }
-.btnSlide, .btnSlide img{
+
+.btnSlide,
+.btnSlide img {
     width: 50px;
     height: 50px;
     background: none;
     border: none;
 }
-
-
-
