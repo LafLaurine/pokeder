@@ -12,16 +12,7 @@
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li>Item 1</li>
-            <li>Item 2</li>
-            <li>Item 3</li>
-            <li>Item 4</li>
-        </ul>
-    </nav>
     <main>
-       <button type="button" id="bouton"><img src="img/menu_icon.png" alt="menu"/> </button>
         <section id="content">
             <h1 class="firstPar" id="who">Who are you ?</h1>
             <p class=" firstPar">Use this handy contact form to get in touch with others that like the same Poke as you !</p>
@@ -48,10 +39,14 @@
                 </div>
                 <div class="divs">
                     <label for="gender" class="label">Gender</label>
-                    <input id="gender-male" name="male" type="radio" value="male" />
-                    <label for="gender-male" class="label">Male</label>
-                    <input id="gender-female" name="Female" type="radio" value="female" />
-                    <label for="gender-female" class="label">Female</label>
+                    <div id="maleDiv" class="genderDiv">
+                        <input id="gender-male" name="male" type="radio" value="male" />
+                        <label for="gender-male" class="label">Male</label>
+                    </div>
+                    <div id="femaleDiv" class="genderDiv">
+                        <input id="gender-female" name="Female" type="radio" value="female" />
+                        <label for="gender-female" class="label">Female</label>
+                    </div>
                 </div>
                 <div class="divs" id="divFavorite">
                     <label for="pokeFav">What's your favorite Pokemon ?</label>
@@ -61,7 +56,7 @@
                     <div id="chosen"></div>
                 </div>
                 <div class="divs">
-                    <label for="pokeType">Pokemon's favorite type</label>
+                    <label for="pokeType" class="label">Pokemon's favorite type</label>
                     <select id="pokeType" name="pokeType" multiple>
                     </select>
                 </div>

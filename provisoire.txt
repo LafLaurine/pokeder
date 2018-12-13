@@ -1,4 +1,5 @@
 Il manque : 
 - Media queries
-- Dynamic modification of the dom --> modifier Who are you par Hello machin
+- couleur de sélection du pokémon
+- vérifier les valeurs entrées par l'utilisateur
 - Javascript callback ?

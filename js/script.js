@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     const inputName = document.querySelector('#firstname');
     const title = document.querySelector('#who');
     const changeName = (value, element) => {
-    element.innerHTML = 'Welcome ' + value || 'Who are you ?'; //si sinon
+    element.innerHTML = 'Welcome ' + value || 'Welcome'; //si sinon
 }
 inputName.addEventListener('keyup', event => changeName(event.target.value, title));
     

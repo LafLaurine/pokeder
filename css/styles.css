@@ -18,6 +18,7 @@ body::before {
     filter: blur(7px) grayscale(70%);
 }
 
+
 /* Nav */
 #bouton {
     transition: all 1s cubic-bezier(0.65, 0.01, 0.3, 1);
@@ -30,6 +31,7 @@ body::before {
     padding: 3px 7px 2px 7px;
     background: none;
     border: none;
+    z-index: 11;
 }
 
 #bouton img {
@@ -46,6 +48,7 @@ nav {
     left: 0;
     transform: translateX(-300px);
     transition: transform 1s cubic-bezier(0.65, 0.01, 0.3, 1);
+    z-index: 10;
 }
 
 .actived {
@@ -55,6 +58,51 @@ nav {
 .decale {
     transform: translateX(300px) !important;
 }
+
+#list {
+    list-style-type: none;
+    margin-top: 60px;
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+#list li {
+    margin: 10px;
+}
+
+#list a {
+    color: black;
+}
+
+@media all and (max-width:768px) {
+    nav {
+        width: 100vw;
+        transform: translateX(-100vh);
+    }
+
+    nav::before {
+        content: '';
+        background-image: url(../img/background.jpg);
+        background-size: cover;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        filter: blur(7px) grayscale(70%);
+    }
+
+    .decale {
+        transform: translateX(90vw) !important;
+    }
+    
+    #list li {
+        margin: 10px auto;
+    }
+}
+
 
 
 
@@ -76,10 +124,14 @@ h1 {
 }
 
 @keyframes title {
-    0%, 10%, 20%, 100% {
+
+    0%,
+    10%,
+    20%,
+    100% {
         transform: translateY(0);
     }
-    
+
     5% {
         transform: translateY(-20px);
     }
@@ -103,7 +155,7 @@ main {
 
 #content {
     margin-top: 50px;
-    width: 800px;
+    width: 768px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -112,6 +164,19 @@ main {
 #pokemon {
     display: flex;
     flex-wrap: wrap;
+}
+
+
+@media all and (max-width:768px) {
+    #content {
+        margin-top: 40px;
+        max-width: 400px;
+    }
+    .firstPar {
+        margin : 15px auto;
+    }
+    
+    
 }
 
 /* Form */
@@ -127,6 +192,10 @@ form {
     display: flex;
     flex-direction: row;
     margin: 15px 0;
+}
+
+.divs input{
+    border: none;
 }
 
 #divFavorite {
@@ -147,9 +216,15 @@ form {
     margin: 5px 10px;
 }
 
+.genderDiv{
+    display: flex;
+    flex-direction: row;
+}
+
 #pokemon img {
     width: 120px;
     height: 120px;
+    margin: auto;
 }
 
 #pokeType {
@@ -169,6 +244,42 @@ form {
     width: 200px;
     margin-left: auto;
     margin-right: auto;
+}
+
+
+@media all and (max-width:768px) {
+    form {
+        align-items: center;
+    }
+    .divs {
+        flex-direction: column;
+        width: 150px;
+        align-items: center;
+    }
+    .divs input{
+        height: 25px;
+        margin-left: 0;
+        width: 150px;
+    }
+    .label {
+        width: 150px;
+        margin: 5px 0;
+    }
+    .genderDiv{
+        width: 150px;
+    }
+    #gender-female, #gender-male {
+        margin: 9px 10px;
+        width: auto;
+        height: auto;
+    }
+    #divFavorite {
+        width: 80vw;
+    }
+    #pokeType {
+        margin-left: 0px;
+    }
+    
 }
 
 
