@@ -26,6 +26,17 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
 
    
+    
+    /* Dynamic modification of the DOM */
+    const inputName = document.querySelector('#firstname');
+    const title = document.querySelector('#who');
+    const changeName = (value, element) => {
+    element.innerHTML = 'Welcome ' + value || 'Who are you ?'; //si sinon
+}
+inputName.addEventListener('keyup', event => changeName(event.target.value, title));
+    
+    
+    
 
     /*var slideIndex = 1;
     showDivs(slideIndex);
