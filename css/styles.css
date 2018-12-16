@@ -3,6 +3,21 @@
     flex-wrap: wrap;
 }
 
+.picture-active {
+    background-color: red;
+}
+
+
+.like-active {
+    display: block!important;
+}
+
+#pokemon img
+{
+    width: 96px;
+    height:96px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -20,15 +35,9 @@ form {
     box-sizing: border-box;
 }
 
-/* Heydon Pickering’s lobotomized owl. Details: https://bit.ly/1H7MXUD */
-*+* {
-    margin-top: 16px;
-    margin-top: 1rem;
-}
 
 /* Set up fonts, colors and all that jazz. */
 body {
-    background: #f9fdfe;
     color: #686a69;
     font-family: 'Open Sans', sans-serif;
     font-size: 18px;
@@ -38,13 +47,29 @@ body {
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Headings use a different font because they’re hipsters. */
 h1,
 h2 {
     color: #2a2f2c;
     font-family: Lato, sans-serif;
     font-weight: 300;
     line-height: 1.125;
+}
+
+#like
+{
+    margin-top: 0.7em;
+}
+
+#heart
+{
+    display:none;
+    margin: auto;
+}
+
+#like:hover
+{
+    opacity:0.6;
+    cursor:pointer;
 }
 
 /* Set up general layout rules for outer containers. */
@@ -78,99 +103,159 @@ h2 {
     border: 1px solid #cdcfcf;
     overflow-x: scroll;
 }
+body::before{
+    content: '';
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter:blur(7px) grayscale(70%);
+}
 
-.contact-form {
-    position: relative;
-    display: block;
+/* Nav */
+#bouton{
+    transition: all 1s cubic-bezier(0.65,0.01,0.3,1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(0px);
+    border: none;
+    margin: 10px;
+    padding: 3px 7px 2px 7px;
+    background: none;
+    border: none;
+}
+#bouton img{
+    width: 30px;
+}
+nav {
+    width: 300px;
+    height: 100vh;
+    background-color: aqua;
     margin: 0;
-    padding: 16px 0 32px;
-    padding: 1rem 0 2rem;
-    border-top: 1px solid #cdcfcf;
-    border-bottom: 1px solid #cdcfcf;
-    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: translateX(-300px);
+    transition: transform 1s cubic-bezier(0.65,0.01,0.3,1);
+}
+.actived{
+    transform: translateX(0px);
+}
+.decale{
+    transform: translateX(300px)!important;
 }
 
-.contact-form__input-group {
-    margin-top: 4px;
-    margin-top: 0.25rem;
-    padding: 8px 16px;
-    padding: 0.5rem 1rem;
-}
-
-.contact-form__label {
-    display: block;
-    color: #414643;
-    font-family: Lato, sans-serif;
-    font-size: 75%;
+/* Main */
+h1, h2 {
+    color: #2a2f2c;
+    font-weight: bold;
+    font-weight: 300;
     line-height: 1.125;
 }
-
-.contact-form__label--checkbox-group {
-    display: inline-block;
-    margin-right: 16px;
-    margin-right: 1rem;
-    font-size: 75%;
+h1{
+    text-align: center;
 }
-
-.contact-form__label--checkbox,
-.contact-form__label--radio {
-    display: inline-block;
-    margin-left: 4px;
-    margin-left: 0.25rem;
+.firstPar{
+    margin-left: 50px;
 }
-
-.contact-form__input {
+main{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+#content{
+    margin-top: 50px;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#pokemon {
+    display: flex;
+    flex-wrap: wrap;
+}
+/* Form */
+form {
+    margin-top: 20px;
+    width: 500px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+.divs{
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0;
+}
+.label{
     display: block;
-    margin-top: 0;
-    padding: 8px 12px;
-    padding: 0.5rem 0.75rem;
-    border: 1px solid #cdcfcf;
-    width: 100%;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 16px;
-    font-size: 1rem;
-    transition: 150ms border-color linear;
+    width: 150px;
+}
+#gender-female, #gender-male{
+    margin: 5px 10px;
+}
+#pokeType{
+    width: 150px;
+    margin-left: 20px;
+}
+#sendIt{
+    background: none;
+    border: none;
+    height: 100px;
+}
+#sendIt img{
+    height: 70px;
 }
 
-.contact-form__input--checkbox,
-.contact-form__input--radio {
-    display: inline-block;
-    width: auto;
+
+
+/* Slider */ 
+.section, .sectionBtnSlide{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    
 }
 
-.contact-form__input--checkbox~.contact-form__input--checkbox,
-.contact-form__input--radio~.contact-form__input--radio {
-    margin-left: 16px;
-    margin-left: 1rem;
+.sectionBtnSlide{
+    flex-direction: row;
 }
-
-.contact-form__input:focus,
-.contact-form__input:active {
-    border-color: #686a69;
-    outline: 0;
+.lesDiv{
+    display: none;
 }
-
-.contact-form__button {
+.divActive{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.lesDiv img {
+    width: 300px;
+}
+.lesDiv p {
+    width: 250px;
+    text-align: justify;
+}
+.active{
     display: block;
-    margin: 8px 16px 0;
-    margin: 0.5rem 1rem 0;
-    padding: 0 16px 2px;
-    padding: 0 1rem 0.125rem;
-    background-color: #686a69;
-    border: 0;
-    color: #f9fdfe;
-    font-family: lato, sans-serif;
-    font-size: 100%;
-    letter-spacing: 0.05em;
-    line-height: 1.5;
-    text-transform: uppercase;
-    transition: 150ms all linear;
+}
+.btnSlide{
+    cursor:pointer;
+    margin: 0 100px;
+}
+.btnSlide, .btnSlide img{
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: none;
 }
 
-.contact-form__button:hover,
-.contact-form__button:active,
-.contact-form__button:focus {
-    background: #2a2f2c;
-    cursor: pointer;
-    outline: 0;
-}
+
+

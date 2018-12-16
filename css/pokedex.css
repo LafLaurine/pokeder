@@ -231,7 +231,7 @@
 
     #screen {
         height: 245px;
-        width: 260px;
+        width: 280px;
         padding: 0 20px;
         background-color: #b0b0b0;
         float: left;
@@ -262,7 +262,7 @@
         width: 254px;
         margin-top: 20px;
         margin-bottom: 9px;
-        background-color: #fff;
+        background:white;
         border: 3px solid #494949;
         clear: both;
 
@@ -417,7 +417,7 @@
     #cross {
         width: 90px;
         height: 90px;
-
+        cursor:pointer!important;
         position: absolute;
         top: 394px;
         left: 230px;
@@ -453,6 +453,8 @@
         height: 30px;
         background-color: #222;
         z-index: 1;
+        cursor:pointer!important;
+
 
         position: absolute;
         left: 0;
@@ -493,6 +495,7 @@
         width: 30px;
         height: 30px;
         background-color: #222;
+        cursor:pointer!important;
 
         position: absolute;
         top: 30px;
@@ -630,7 +633,6 @@
     #bg_curve1_right {
         width: 350px;
         height: 80px;
-        background-color: #fff;
 
         border-top-right-radius: 30px;
         -webkit-border-top-right-radius: 30px;
@@ -641,7 +643,6 @@
     #curve2_right {
         width: 216px;
         height: 100px;
-        background-color: #fff;
         float: left;
 
         position: absolute;

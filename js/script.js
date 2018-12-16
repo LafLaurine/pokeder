@@ -1,5 +1,15 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
+    //Avatar is made of their pokeFav
+
+    const inputName = document.querySelector('#firstname'); 
+    const title = document.querySelector('#who'); 
+    const changeName = (value, element) => { 
+    element.innerHTML = 'Welcome ' + value || 'Welcome'; //si sinon 
+} 
+inputName.addEventListener('keyup', event => changeName(event.target.value, title)); 
+     
+    
     //Get Pokemon types and display it
     const selector = document.querySelector('#pokeType');
 
@@ -66,7 +76,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     }
 
     const pokeImg = document.querySelectorAll("img");
-
+    
     for (var i = 0, len = pokeImg.length; i < len; i++) {
         pokeImg[i].addEventListener('click', e => {
             const pokemonId = e.target.id.split('pokePic')[1];
@@ -74,106 +84,50 @@ document.addEventListener("DOMContentLoaded", function (event) {
             fetch('https://pokeapi.co/api/v2/pokemon/' + pokemonId + "/")
                 .then(response => response.json())
                 .then(data => {
+                    const actives = document.querySelectorAll('.picture-active');
+                    actives.forEach(function (element) {
+                        element.classList.remove("picture-active");
+                    });
+
                     const pokeName = data.name;
                     const imgChosen = document.querySelector('#pokePic' + pokemonId);
-                    imgChosen.style.backgroundColor = "red";
+                    imgChosen.classList.add('picture-active');
+
                     document.querySelector("#pokeName").value = pokeName;
                     document.querySelector("#chosen").innerHTML = pokeName;
                 });
         });
     }
 
-
-    /*
-        function download(content, fileName, contentType) {
-            var a = document.createElement("a");
-            var file = new Blob([content], {
-                type: contentType
-            });
-            a.href = URL.createObjectURL(file);
-            a.download = fileName;
-            a.click();
-        }*/
-
     const handleFormSubmit = event => {
-
-        // Stop the form from submitting since we’re handling that with AJAX.
-        event.preventDefault();
-
-
         // Call our function to get the form data.
         const user = formToJSON(form.elements);
-
-        // print the form data onscreen as a formatted JSON object.
-        const dataContainer = document.getElementsByClassName('results__display')[0];
-
         // Use `JSON.stringify()` to make the output valid, human-readable JSON.
-        const jsonUser = dataContainer.textContent = JSON.stringify(user, null, "  ");
+        const jsonUser = JSON.stringify(user, null, "  ");
 
         var listUser = [];
-
-        //get list
-        /* $.ajax({
-              url: 'https://api.myjson.com/bins/14h1i6',
-              type: "GET",
-              contentType: "application/json; charset=utf-8",
-              dataType: "json",
-              success: function (dataRep, textStatus, jqXHR) {
-                  listUser = JSON.parse(JSON.stringify(dataRep));
-                  listUser.push(user);
-                  console.log(listUser);
-                  // do update
-                  $.ajax({
-                      url: 'https://api.myjson.com/bins/14h1i6',
-                      type: "PUT",
-                      data: listUser,
-                      contentType: "application/json; charset=utf-8",
-                      dataType: "json",
-                      success: function (data, textStatus, jqXHR) {
-                          var json = JSON.stringify(data);
-                          console.log(json);
-
-                      }
-                  });
-              }
-          });*/
-
-
-        fetch('https://api.myjson.com/bins/14h1i6', {
-                mode: 'cors'
-            })
-            .then(response => response.json())
-            .then(data => {
-                listUser = JSON.parse(JSON.stringify(data));;
-                console.log(listUser);
-            });
+            
+        
 
         $.ajax({
-            url: 'https://api.myjson.com/bins/14h1i6',
-            type: "PUT",
-            headers: {
-                "accept": "application/json",
-                "Access-Control-Allow-Origin": '*',
-                "Content-type": "application/json"
-
-            },
-            data: listUser,
+            url: 'http://localhost/Pokeder/api/list.php',
+            type: "POST",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
-            success: function (data, textStatus, jqXHR) {
-                listUser.push() = JSON.stringify(data);
-                console.log(json);
+            data: jsonUser,
+            success: function (dataRep, textStatus, jqXHR) {
+           },
+           error: function(XMLHttpRequest, textStatus, errorThrown) {
+            console.log(XMLHttpRequest, textStatus, errorThrown);
+         }
 
-            }
         });
 
 
 
-
+      
 
     };
-
-
 
     const form = document.getElementsByClassName('contact-form')[0];
     form.addEventListener('submit', handleFormSubmit);
