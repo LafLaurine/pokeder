@@ -1,50 +1,29 @@
-#pokemon {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.picture-active {
-    background-color: red;
-}
-
-
-.like-active {
-    display: block!important;
-}
-
-#pokemon img
-{
-    width: 96px;
-    height:96px;
-}
-
-* {
+/* Set up body */
+body {
+    color: black;
+    font-family: Lato, sans-serif;
+    font-size: 18px;
     margin: 0;
-    padding: 0;
 }
 
-form {
-    margin-top: 5em;
+body::before {
+    content: '';
+    background-image: url(../img/background.jpg);
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    filter: blur(7px) grayscale(70%);
 }
 
-/* A simple reset. */
 *,
 ::before,
 ::after {
     margin: 0;
     box-sizing: border-box;
-}
-
-
-/* Set up fonts, colors and all that jazz. */
-body {
-    color: #686a69;
-    font-family: 'Open Sans', sans-serif;
-    font-size: 18px;
-    line-height: 1.75;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
@@ -55,70 +34,105 @@ h2 {
     line-height: 1.125;
 }
 
-#like
-{
+/* First page */
+#index {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 150px;
+    align-items: center;
+}
+
+.h3_index {
+    margin: 20px;
+    position: relative;
+}
+
+.h3_index a {
+    color: black;
+    text-decoration: none;
+}
+
+.h3_index:first-of-type:before {
+    content: "";
+    height: 300px;
+    width: 300px;
+    background-image: url(../img/sacha.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 140px;
+    left: 50px;
+}
+
+.h3_index:last-of-type:before {
+    content: "";
+    height: 150px;
+    width: 150px;
+    background-image: url(../img/pikachu.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: 200px;
+    left: -80px;
+}
+
+#like {
     margin-top: 0.7em;
 }
 
-#heart
-{
-    display:none;
+#heart {
+    display: none;
     margin: auto;
 }
 
-#like:hover
-{
-    opacity:0.6;
-    cursor:pointer;
+#like:hover {
+    opacity: 0.6;
+    cursor: pointer;
 }
 
-/* Set up general layout rules for outer containers. */
-.content,
-.results {
-    width: 90vw;
-    max-width: 550px;
-    margin: 8vh auto;
+#pokemon {
+    display: flex;
+    flex-wrap: wrap;
 }
 
-.content__heading {
-    font-size: 125%;
+.picture-active {
+    background-color: #2DA4FC;
 }
 
-.content__lede {
-    margin-top: 8px;
-    margin-top: 0.5rem;
-    font-size: 87.5%;
+
+.like-active {
+    display: block !important;
 }
 
-.results__heading {
-    font-size: 110%;
+#pokemon img {
+    width: 96px;
+    height: 96px;
 }
 
-.results__display-wrapper {
-    margin-top: 16px;
-    margin-top: 1rem;
-    padding: 8px 16px;
-    padding: 0.5rem 1rem;
-    background: #f9fdfe;
-    border: 1px solid #cdcfcf;
-    overflow-x: scroll;
-}
-body::before{
-    content: '';
-    background-image: url(../img/background.jpg);
-    background-size: cover;
-    height: 100vh;
-    width: 100vw;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    filter:blur(7px) grayscale(70%);
+@media all and (max-width:768px) {
+    #index {
+        max-width: 100vw;
+    }
+
+    .h3_index:first-of-type:before {
+        width: 200px;
+        height: 200px;
+        top: 130px;
+        left: -30px;
+    }
+
+    .h3_index:last-of-type:before {
+        width: 100px;
+        height: 100px;
+        top: 230px;
+        left: -10px;
+    }
 }
 
 /* Nav */
-#bouton{
-    transition: all 1s cubic-bezier(0.65,0.01,0.3,1);
+#bouton {
+    transition: all 1s cubic-bezier(0.65, 0.01, 0.3, 1);
     position: fixed;
     top: 0;
     left: 0;
@@ -128,134 +142,363 @@ body::before{
     padding: 3px 7px 2px 7px;
     background: none;
     border: none;
+    z-index: 11;
 }
-#bouton img{
+
+#bouton img {
     width: 30px;
 }
+
 nav {
     width: 300px;
     height: 100vh;
-    background-color: aqua;
+    background-color: rgba(100, 100, 100, 0.3);
     margin: 0;
     position: fixed;
     top: 0;
     left: 0;
     transform: translateX(-300px);
-    transition: transform 1s cubic-bezier(0.65,0.01,0.3,1);
-}
-.actived{
-    transform: translateX(0px);
-}
-.decale{
-    transform: translateX(300px)!important;
+    transition: transform 1s cubic-bezier(0.65, 0.01, 0.3, 1);
+    z-index: 10;
 }
 
+.actived {
+    transform: translateX(0px);
+}
+
+.decale {
+    transform: translateX(300px) !important;
+}
+
+#list {
+    list-style-type: none;
+    margin-top: 60px;
+    margin-left: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+#list li {
+    margin: 10px;
+}
+
+#list a {
+    color: black;
+}
+
+@media all and (max-width:768px) {
+    nav {
+        width: 100vw;
+        transform: translateX(-100vh);
+    }
+
+    nav::before {
+        content: '';
+        background-image: url(../img/background.jpg);
+        background-size: cover;
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        filter: blur(7px) grayscale(70%);
+    }
+
+    .decale {
+        transform: translateX(90vw) !important;
+    }
+
+    #list li {
+        margin: 10px auto;
+    }
+}
+
+@media (max-width: 500px){
+    .decale {
+        transform: translateX(80vw) !important;
+    }
+    #list{
+        margin-left: -100px;
+    }
+}
+    
+
 /* Main */
-h1, h2 {
+h1,
+h2 {
     color: #2a2f2c;
     font-weight: bold;
     font-weight: 300;
     line-height: 1.125;
 }
-h1{
+
+h1 {
     text-align: center;
 }
-.firstPar{
-    margin-left: 50px;
+
+#who {
+    animation: title 5s linear infinite normal;
 }
-main{
+
+@keyframes title {
+
+    0%,
+    10%,
+    20%,
+    100% {
+        transform: translateY(0);
+    }
+
+    5% {
+        transform: translateY(-20px);
+    }
+
+    15% {
+        transform: translateY(-10px);
+    }
+}
+
+.firstPar {
+    margin: 15px 0;
+}
+
+main {
     display: flex;
     flex-direction: column;
     align-content: center;
     align-items: center;
     min-height: 100vh;
 }
-#content{
+
+#content {
     margin-top: 50px;
-    width: 800px;
+    width: 768px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 #pokemon {
     display: flex;
     flex-wrap: wrap;
 }
+
+#content form button{
+    margin-bottom: 40px;
+}
+
+@media all and (max-width:768px) {
+    #content {
+        margin-top: 40px;
+        width: 400px;
+    }
+
+    .firstPar {
+        margin: 15px auto;
+    }
+}
+
+@media all and (max-width:500px){
+    #content{
+        width: 200px;
+    }
+    #divFavorite label{
+        margin-left: 20px;
+    }
+}
+
 /* Form */
 form {
     margin-top: 20px;
-    width: 500px;
+    max-width: 500px;
     height: auto;
-    display: flex;
-    flex-direction: column;
-}
-.divs{
-    display: flex;
-    flex-direction: row;
-    margin: 15px 0;
-}
-.label{
-    display: block;
-    width: 150px;
-}
-#gender-female, #gender-male{
-    margin: 5px 10px;
-}
-#pokeType{
-    width: 150px;
-    margin-left: 20px;
-}
-#sendIt{
-    background: none;
-    border: none;
-    height: 100px;
-}
-#sendIt img{
-    height: 70px;
-}
-
-
-
-/* Slider */ 
-.section, .sectionBtnSlide{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    
-}
-
-.sectionBtnSlide{
-    flex-direction: row;
-}
-.lesDiv{
-    display: none;
-}
-.divActive{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
+#log h1{
+    margin-top: 60px;
+}
+
+#log form {
+    align-items: center;
+    width: auto;
+}
+
+#log .divs {
+    margin: 30px 0;
+}
+
+#log form #submitButton {
+    margin-top: 45px;
+}
+
+.divs {
+    display: flex;
+    flex-direction: row;
+    margin: 15px 0;
+}
+
+.divs input {
+    border: none;
+}
+
+#divFavorite {
+    flex-direction: column;
+}
+
+#divFavorite label {
+    margin-bottom: 10px;
+}
+
+.label {
+    display: block;
+    width: 150px;
+}
+
+#female,
+#male {
+    margin: 5px 10px;
+}
+
+.genderDiv {
+    display: flex;
+    flex-direction: row;
+}
+
+#pokemon img {
+    width: 120px;
+    height: 120px;
+    margin: auto;
+}
+
+#pokeType {
+    width: 150px;
+    margin-left: 20px;
+}
+
+form #submitButton {
+    background-image: url(../img/btnSendIt.png);
+    background-size: contain;
+    background-color: rgba(0, 0, 0, 0);
+    background-repeat: no-repeat;
+    background-position: center;
+    color: rgba(0, 0, 0, 0);
+    border: none;
+    height: 100px;
+    width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media all and (max-width:768px) {
+    form {
+        align-items: center;
+    }
+
+    .divs {
+        flex-direction: column;
+        width: 150px;
+        align-items: center;
+    }
+
+    .divs input {
+        height: 25px;
+        margin-left: 0;
+        width: 150px;
+    }
+
+    .label {
+        width: 150px;
+        margin: 5px 0;
+    }
+
+    .genderDiv {
+        width: 150px;
+    }
+
+    #female,
+    #male {
+        margin: 9px 10px;
+        width: auto;
+        height: auto;
+    }
+
+    #divFavorite {
+        width: 80vw;
+    }
+
+    #pokeType {
+        margin-left: 0px;
+    }
+
+}
+
+/* Slider */
+#result_index h1{
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+.section,
+.sectionBtnSlide {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.sectionBtnSlide{
+    max-width: 90vw;
+}
+
+#sectionImg{
+    max-width: 90vw;
+}
+
+.sectionBtnSlide {
+    flex-direction: row;
+}
+
+.lesDiv {
+    display: none;
+}
+
+.divActive {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .lesDiv img {
     width: 300px;
 }
+
 .lesDiv p {
     width: 250px;
     text-align: justify;
 }
-.active{
+
+.active {
     display: block;
 }
-.btnSlide{
-    cursor:pointer;
+
+.btnSlide {
+    cursor: pointer;
     margin: 0 100px;
 }
-.btnSlide, .btnSlide img{
+
+.btnSlide,
+.btnSlide img {
     width: 50px;
     height: 50px;
     background: none;
     border: none;
 }
 
-
-
+@media all and (max-width:400px) {
+    .btnSlide {
+        margin: 0 50px;
+    }
+}

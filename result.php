@@ -19,12 +19,12 @@
 
 <body>
     <nav>
-        <ul>
+        <ul id="list">
             <li><a href="./profile.php">Profile</a></li>
             <li><a href="./includes/logout.php">Logout</a></li>
         </ul>
     </nav>
-    <main>
+    <main id="result_index">
        <button type="button" id="bouton"><img src="img/menu_icon.png" alt="menu"/> </button>
         <h1>Résultats</h1>
         <section id="sectionImg" class="section">

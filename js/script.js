@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     //Avatar is made of their pokeFav
 
-    const inputName = document.querySelector('#firstname'); 
+    const inputName = document.querySelector('#pseudo'); 
     const title = document.querySelector('#who'); 
     const changeName = (value, element) => { 
     element.innerHTML = 'Welcome ' + value || 'Welcome'; //si sinon 
@@ -110,7 +110,7 @@ inputName.addEventListener('keyup', event => changeName(event.target.value, titl
         
 
         $.ajax({
-            url: 'http://localhost/Pokeder/api/list.php',
+            url: 'http://lucielesbats.fr/Pokeder/api/list.php',
             type: "POST",
             contentType: "application/json; charset=utf-8",
             dataType: "json",

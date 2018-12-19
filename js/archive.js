@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
     var tabUser = [];
     var currentUser;
-    fetch('http://localhost/Pokeder/api/archive.php')
+    fetch('http://lucielesbats.fr/Pokeder/api/archive.php')
     .then(response => response.json())
     .then(data=>{      
         console.log(data);

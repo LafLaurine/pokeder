@@ -20,8 +20,8 @@ session_start();?>
 
 <body>
 <nav>
-        <ul>
-            <li><a href="./profile.php">Profile</a></li>
+        <ul id="list">
+            <li><a href="./result.php">Result</a></li>
             <li><a href="./includes/logout.php">Logout</a></li>
         </ul>
     </nav>

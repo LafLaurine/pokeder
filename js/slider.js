@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   //tab objet
   var tabUser = [];
   var currentUser;
-  fetch('http://localhost/Pokeder/api/list.php')
+  fetch('http://lucielesbats/Pokeder/api/list.php')
   .then(response => response.json())
   .then(data=>{      
       console.log(data);
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   function liked()
   {
     $.ajax({
-      url: 'http://localhost/Pokeder/api/like.php',
+      url: 'http://lucielesbats/Pokeder/api/like.php',
       type: "POST",
       dataType: "text",
       data: {

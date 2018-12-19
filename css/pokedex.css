@@ -19,8 +19,7 @@
         float: left;
         position: relative;
     }
-
-
+    
 
     /* //// LEFT PART //// */
 
@@ -262,7 +261,7 @@
         width: 254px;
         margin-top: 20px;
         margin-bottom: 9px;
-        background:white;
+        background: white;
         border: 3px solid #494949;
         clear: both;
 
@@ -417,7 +416,7 @@
     #cross {
         width: 90px;
         height: 90px;
-        cursor:pointer!important;
+        cursor: pointer !important;
         position: absolute;
         top: 394px;
         left: 230px;
@@ -453,7 +452,7 @@
         height: 30px;
         background-color: #222;
         z-index: 1;
-        cursor:pointer!important;
+        cursor: pointer !important;
 
 
         position: absolute;
@@ -495,7 +494,7 @@
         width: 30px;
         height: 30px;
         background-color: #222;
-        cursor:pointer!important;
+        cursor: pointer !important;
 
         position: absolute;
         top: 30px;
@@ -624,9 +623,6 @@
         left: 0;
 
         border-top-right-radius: 85px 60px;
-        -webkit-border-right-left-radius: 85px 60px;
-        -moz-border-right-left-radius: 85px 60px;
-        -o-border-right-left-radius: 85px 60px;
     }
 
 
@@ -672,7 +668,7 @@
     }
 
     #stats {
-        height: 130px;
+        height: 155px;
         width: 280px;
         padding: 10px;
         background-color: #30da0c;
@@ -959,4 +955,18 @@
         display: none;
     }
 
+}
+
+@media all and (max-width:450px){
+    #left, #right{
+        display: none;
+    }
+    #pokedex:before {
+        content: "Sorry, not available on mobile phone :'(";
+        display: block;
+        max-width: 90vw;
+        height: auto;
+        text-align: center;
+        margin: 60px 5vw 0 5vw;
+    }
 }
