@@ -23,12 +23,12 @@ document.addEventListener("DOMContentLoaded", function (event) {
   function switchUser()
   { 
     const userDesc = document.querySelector('.lesDiv');
-    userDesc.innerHTML = tabUser[currentUser].pseudo;
+    userDesc.innerHTML = "<p> Pseudo : " + tabUser[currentUser].pseudo + "</p>";
     const firstname = document.createElement("p");
-    firstname.innerHTML = tabUser[currentUser].firstname;
+    firstname.innerHTML = "Firstname : " + tabUser[currentUser].firstname;
     userDesc.appendChild(firstname);
     const name = document.createElement("p");
-    name.innerHTML = tabUser[currentUser].name;
+    name.innerHTML = "Name : " +  tabUser[currentUser].name;
     userDesc.appendChild(name);
     const pokeName = tabUser[currentUser].pokeName;
     //in order to get Giphy API to generate a gif bc we didn't have time to generate avatars
@@ -80,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
       },
       success: function (dataRep) {
           //changeLike();
+          alert('Your choice has been registered !');
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {
         console.log(XMLHttpRequest, textStatus, errorThrown);

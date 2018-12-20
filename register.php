@@ -33,6 +33,8 @@
         </ul>
     </nav>
     <main>
+    <button type="button" id="bouton"><img src="img/menu_icon.png" alt="menu"/> </button>
+
   
     <section class="content" id="content">
         <h1 class="firstPar" id="who">Who are you ?</h1>
@@ -86,7 +88,7 @@
             </div>
             <div class="contact-form__input-group divs">
                 <label class="contact-form__label label" for="pokeType">Pokemon's favorite type</label>
-                <select class="contact-form__input contact-form__input--select" id="pokeType" name="pokeType" required>
+                <select class="contact-form__input contact-form__input--select" id="pokeType" name="pokeType" multiple>
                 </select>
             </div>
             <button class="contact-form__button"  type="submit" name="submitButton" id="submitButton">SEND IT</button> 
@@ -109,6 +111,8 @@
         
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/menu.js"></script>
+
 
 
 </body>

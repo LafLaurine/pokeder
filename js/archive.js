@@ -23,15 +23,20 @@ document.addEventListener("DOMContentLoaded", function (event) {
     function switchUser()
     {
      
-            //Get information about one of the user liked
-            const likedPseudo = document.querySelector('#likedpseudo');
-            likedPseudo.innerHTML = tabUser[currentUser].pseudo;
-            
-            const likedFirstname = document.querySelector('#likedfirstname');
-            likedFirstname.innerHTML = tabUser[currentUser].firstname;
-            
-            const likedName = document.querySelector('#likedname');
-            likedName.innerHTML = tabUser[currentUser].name;
+    
+            //Get information about one of the user liked            
+            if (tabUser[currentUser] != null)
+            {
+              const likedPseudo = document.querySelector('#likedpseudo');              
+              likedPseudo.innerHTML = "Pseudo : " + tabUser[currentUser].pseudo;
+              
+              const likedFirstname = document.querySelector('#likedfirstname');
+              likedFirstname.innerHTML = "Firstname : " + tabUser[currentUser].firstname;
+              
+              const likedName = document.querySelector('#likedname');
+              likedName.innerHTML = "Name : " +tabUser[currentUser].name;  
+            }
+           
 
 
     }

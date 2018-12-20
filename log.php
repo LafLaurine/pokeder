@@ -36,6 +36,8 @@
         </ul>
     </nav>
 <main id="log">
+<button type="button" id="bouton"><img src="img/menu_icon.png" alt="menu"/> </button>
+
 <section class="content">
         <h1 class="content__heading">Login</h1>
         <form class="content__form contact-form" action="./includes/login.php" method="POST">
@@ -54,6 +56,8 @@
             <button class="contact-form__button"  type="submit" name="submitButton" id="submitButton">SEND IT</button> 
         </form>
     </section>
+    <script src="js/menu.js"></script>
+
 
 </body>
 </html>

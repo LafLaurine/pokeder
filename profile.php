@@ -104,10 +104,10 @@ if(!isset($_SESSION['id_user']))
     <div id="stats">
       <!-- User information -->
       <h3>Your profile : </h3>
-      <strong id="pseudo"><?php echo $_SESSION['pseudo']; ?></strong><br/>
+      <strong id="pseudo">Pseudo : <?php echo $_SESSION['pseudo']; ?></strong><br/>
       <strong id="firstname">Firstname : <?php echo $_SESSION['firstname']; ?></strong><br/>
       <strong id="name">Name : <?php echo $_SESSION['name']; ?></strong> <br/>
-      <strong id="name"> This user liked pokemon that are <?php echo $_SESSION['pokeType']; ?> type</strong> <br/>
+      <strong id="name"> This user likes pokemon that are <?php echo $_SESSION['pokeType']; ?> type</strong> <br/>
     </div>
     <div id="blueButtons1">
       <div class="blueButton"></div>

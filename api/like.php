@@ -44,7 +44,6 @@ function like($pseudo)
             $req->bindParam('id_user', $_SESSION['id_user'] , PDO::PARAM_INT);
             $req->bindParam('id_user_liked', $id_user_liked , PDO::PARAM_INT);
             $req->execute();
-
         }
         
 

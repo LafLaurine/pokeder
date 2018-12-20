@@ -449,7 +449,13 @@ form #submitButton {
 
 .lesDiv p {
     width: 250px;
+    margin:10px 0;
     text-align: justify;
+}
+
+.lesDiv:first-child
+{
+    margin-left: -5px;
 }
 
 .active {
