@@ -4,8 +4,7 @@ session_start();
 require_once $_SERVER['DOCUMENT_ROOT']. '/Pokeder/includes/connexion.php';
 
 
-
-//Teste si l'utilisateur existe
+//Test in order to check if user already exists
 function userExists() 
 {
     $db = connectBd();
@@ -18,7 +17,8 @@ function userExists()
 
 
 
-//Récupération des variables
+//Get variables when form post
+
 $pseudo = filter_input(INPUT_POST, 'pseudo');
 $passwd = filter_input(INPUT_POST, 'pwd');
 
@@ -36,10 +36,10 @@ if (isset($pseudo,$passwd))
                 'salt' => 111111111111111111111111111
             ];
     
-            //On crypte à nouveau le mot de passe afin de vérif avec le bon
             $hash = hash("sha256",$passwd);
            
-            // Vérification des identifiants
+            // Check if user can log : pseudo & pwd 
+
             $query = "SELECT * FROM user WHERE (pseudo = :pseudo AND pwd = :hash);";   
             $req = $db->prepare($query);
             $req->bindParam('pseudo', $pseudo, PDO::PARAM_STR, 32);
@@ -47,7 +47,7 @@ if (isset($pseudo,$passwd))
             $req->execute();
             $result = $req->fetch(PDO::FETCH_ASSOC);
     
-            //Teste si le mot de passe est associé avec le pseudo
+            //Check if pwd is associated with username
             if ($result)
             {
                 

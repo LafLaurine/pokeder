@@ -54,26 +54,25 @@ $pokeType = filter_input(INPUT_POST, 'pokeType');;
 try
 { 
     $db = connectBd ();
-    // Si le formulaire est envoyé
+    // If form is submit
     if (isset($_POST['submitButton']))  
     {   
-        // Teste que les valeurs ne sont pas vides ou composées uniquement d'espaces  
+        // Check if values aren't empty and aren't composed of space
         $pseudo = trim($pseudo) != '' ? $pseudo : null;
         $pwd = trim($pwd) != '' ? $pwd : null;
-    
-        //Si différent de null      
+         
         $pseudoValidity = testpseudoValidity($pseudo);
         $mailValidity = testEmailValidity($email); 
         
 
-        //redirige en GET si nom utilisateur existe déjà
+        //Redirect if user already exists
         if ($pseudoValidity) {
-            header("Location: ../index.php?error=pseudo");    
+            header("Location: ../register.php?error=pseudo");    
         }
 
-        //redirige en GET si mail existe déjà
+        //Redirect if mail already exists
         else if ($mailValidity) {
-            header ("Location: ../index.php?error=email");
+            header ("Location: ../register.php?error=email");
         } 
 
         //Association des éléments que l'user a entré à la BD
@@ -81,7 +80,6 @@ try
             
            
                 
-                // Password du form
                 $hash = hash("sha256",$pwd);
                 
                 $req = $db->prepare('INSERT INTO user(pseudo, firstname, name, gender, birthdate, email, pwd, pokeFav, pokeType) VALUES (?,?,?,?,?,?,?,?,?)');
@@ -95,7 +93,6 @@ try
                 $req->bindParam(7, $hash);
                 $req->bindParam(8, $pokeName);
                 $req->bindParam(9, $pokeType);
-                //var_dump($pseudo);  
                 $req->execute();
 
                 

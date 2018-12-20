@@ -1,3 +1,4 @@
+
 /* Set up body */
 body {
     color: black;
@@ -33,6 +34,7 @@ h2 {
     font-weight: 300;
     line-height: 1.125;
 }
+
 
 /* First page */
 #index {
@@ -77,38 +79,6 @@ h2 {
     left: -80px;
 }
 
-#like {
-    margin-top: 0.7em;
-}
-
-#heart {
-    display: none;
-    margin: auto;
-}
-
-#like:hover {
-    opacity: 0.6;
-    cursor: pointer;
-}
-
-#pokemon {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-.picture-active {
-    background-color: #2DA4FC;
-}
-
-
-.like-active {
-    display: block !important;
-}
-
-#pokemon img {
-    width: 96px;
-    height: 96px;
-}
 
 @media all and (max-width:768px) {
     #index {
@@ -129,6 +99,7 @@ h2 {
         left: -10px;
     }
 }
+
 
 /* Nav */
 #bouton {
@@ -369,8 +340,8 @@ form {
 }
 
 #pokemon img {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
     margin: auto;
 }
 
@@ -387,6 +358,7 @@ form #submitButton {
     background-position: center;
     color: rgba(0, 0, 0, 0);
     border: none;
+    cursor:pointer;
     height: 100px;
     width: 200px;
     margin-left: auto;
@@ -501,4 +473,31 @@ form #submitButton {
     .btnSlide {
         margin: 0 50px;
     }
+}
+
+
+.picture-active {
+    background-color:rgba(139, 0, 0, 0.5); 
+}
+
+
+.like-active {
+    display: block!important;
+}
+
+#like
+{
+    margin-top: 0.7em;
+}
+
+#heart
+{
+    display:none;
+    margin: auto;
+}
+
+#like:hover
+{
+    opacity:0.6;
+    cursor:pointer;
 }

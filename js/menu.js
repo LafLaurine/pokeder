@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function (event) {
     
+    //Allow us to have a menu thar is active when we click on it
      var bouton = document.querySelector("#bouton");
     bouton.addEventListener("click", appMenu);
     

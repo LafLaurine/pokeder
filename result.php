@@ -1,6 +1,15 @@
 <?php
     session_start();
     header('Content-type: text/html; charset=utf-8');
+    
+    if(!isset($_SESSION['id_user']))
+    {
+        
+        echo"<script language=\"javascript\">";
+        echo "alert('You are not log')";
+        echo"</script>";
+        header('Location: ./index.php');
+    }
    
 ?>
 
@@ -18,15 +27,16 @@
 </head>
 
 <body>
-    <nav>
-        <ul id="list">
+<nav>
+<ul id="list">
+            <li><a href="./index.php">Home</a></li>
             <li><a href="./profile.php">Profile</a></li>
             <li><a href="./includes/logout.php">Logout</a></li>
         </ul>
     </nav>
     <main id="result_index">
        <button type="button" id="bouton"><img src="img/menu_icon.png" alt="menu"/> </button>
-        <h1>Résultats</h1>
+        <h1>Results</h1>
         <section id="sectionImg" class="section">
             <div class="lesDiv divActive">
             </div>

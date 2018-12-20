@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   //tab objet
   var tabUser = [];
   var currentUser;
-  fetch('http://lucielesbats/Pokeder/api/list.php')
+  fetch('http://localhost/Pokeder/api/list.php')
   .then(response => response.json())
   .then(data=>{      
       console.log(data);
@@ -18,6 +18,8 @@ document.addEventListener("DOMContentLoaded", function (event) {
 
   }
 
+  //allow the current user to switch between users that have the same Poketype as him
+
   function switchUser()
   { 
     const userDesc = document.querySelector('.lesDiv');
@@ -29,7 +31,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
     name.innerHTML = tabUser[currentUser].name;
     userDesc.appendChild(name);
     const pokeName = tabUser[currentUser].pokeName;
-    //in order to get Giphy API to generate a gif
+    //in order to get Giphy API to generate a gif bc we didn't have time to generate avatars
     fetch('http://api.giphy.com/v1/gifs/search?q=' + pokeName + '&api_key=0qYhEAykwPTrHJL3iD9GRnDSsoOfuabN&limit=5' + '/', {mode:'cors'})
     .then(response => response.json())
     .then(data => {
@@ -40,12 +42,13 @@ document.addEventListener("DOMContentLoaded", function (event) {
         pokeZone.setAttribute('id', 'pokeGif');
         pokeZone.src = pokeImg;
         userDesc.appendChild(pokeZone);
-        changeLike();
+        //changeLike();
 
     });
 
   }
 
+  //kinda broken function that add another heart. We wanted to get a heart whenever someone was liked
   function changeLike()
   {
     const actives = document.querySelector('.like-active');
@@ -65,18 +68,18 @@ document.addEventListener("DOMContentLoaded", function (event) {
   };    
 
 
-    //Profile : like
+  //Call to the API like
   function liked()
   {
     $.ajax({
-      url: 'http://lucielesbats/Pokeder/api/like.php',
+      url: 'http://localhost/Pokeder/api/like.php',
       type: "POST",
       dataType: "text",
       data: {
         pseudo : tabUser[currentUser].pseudo
       },
       success: function (dataRep) {
-          changeLike();
+          //changeLike();
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {
         console.log(XMLHttpRequest, textStatus, errorThrown);
@@ -85,11 +88,11 @@ document.addEventListener("DOMContentLoaded", function (event) {
     });
   }
 
-  // si passe dans négatif c-a-d 0-1 -> affecte dernier indice du tab : tab.length-1, sinon juste -1
 
   leftButton = document.getElementById('leftButton');
 
   leftButton.addEventListener('click', e => {
+      // If currentUser pass into negative : 0-1, pass last tab indice : tab-length-1, if not, just -1
     currentUser = currentUser-1<0 ? tabUser.length-1 : currentUser-1;
     switchUser();
   });
@@ -97,6 +100,7 @@ document.addEventListener("DOMContentLoaded", function (event) {
   rightButton = document.getElementById('rightButton');
 
   rightButton.addEventListener('click', e => {
+    // If next currentUser is equal to the length of the tab that contains every user, we start over at the indice 0. Else, we just go to the next user
     currentUser = currentUser+1 == tabUser.length ? 0 : currentUser+1;
     switchUser();
   });

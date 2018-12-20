@@ -1,7 +1,20 @@
 <?php
 
 header('Content-type: text/html; charset=utf-8');
-session_start();?>
+session_start();
+
+//Redirect if user isn't log
+if(!isset($_SESSION['id_user']))
+{
+  
+  echo"<script language=\"javascript\">";
+  echo "alert('You aren't log')";
+  echo"</script>";
+    header('Location: ./index.php');
+}
+
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +34,7 @@ session_start();?>
 <body>
 <nav>
         <ul id="list">
+            <li><a href="./index.php">Home</a></li>
             <li><a href="./result.php">Result</a></li>
             <li><a href="./includes/logout.php">Logout</a></li>
         </ul>
@@ -28,7 +42,7 @@ session_start();?>
     <main>
     <button type="button" id="bouton"><img src="img/menu_icon.png" alt="menu"/> </button>
 
-<div id="pokedex">
+    <div id="pokedex">
   <div id="left">
     <div id="logo"></div>
     <div id="bg_curve1_left"></div>
@@ -88,6 +102,7 @@ session_start();?>
   </div>
   <div id="right">
     <div id="stats">
+      <!-- User information -->
       <h3>Your profile : </h3>
       <strong id="pseudo"><?php echo $_SESSION['pseudo']; ?></strong><br/>
       <strong id="firstname">Firstname : <?php echo $_SESSION['firstname']; ?></strong><br/>

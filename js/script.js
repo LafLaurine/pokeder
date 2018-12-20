@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", function (event) {
 
-    //Avatar is made of their pokeFav
+    //Change name after welcome when user type their username
 
     const inputName = document.querySelector('#pseudo'); 
     const title = document.querySelector('#who'); 
     const changeName = (value, element) => { 
-    element.innerHTML = 'Welcome ' + value || 'Welcome'; //si sinon 
+    element.innerHTML = 'Welcome ' + value || 'Welcome';  
 } 
 inputName.addEventListener('keyup', event => changeName(event.target.value, title)); 
      
@@ -67,6 +67,8 @@ inputName.addEventListener('keyup', event => changeName(event.target.value, titl
 
     }, {});
 
+
+    //Get pokemon images from a github file
     for (i = 1; i <= 151; i++) {
         const pokeImg = document.createElement("img");
         pokeImg.setAttribute('id', 'pokePic' + i);
@@ -76,14 +78,17 @@ inputName.addEventListener('keyup', event => changeName(event.target.value, titl
     }
 
     const pokeImg = document.querySelectorAll("img");
-    
+    //Get the ID of the pokemon that has been clicked, display the name into the html and put a red background to show the user what Poke he has chosen
     for (var i = 0, len = pokeImg.length; i < len; i++) {
         pokeImg[i].addEventListener('click', e => {
+            //get pokemon id
             const pokemonId = e.target.id.split('pokePic')[1];
             console.log(pokemonId);
+            //fetch the pokemon api in order to assign a class to the pokemon that has been clicked
             fetch('https://pokeapi.co/api/v2/pokemon/' + pokemonId + "/")
                 .then(response => response.json())
                 .then(data => {
+                    //add and remove a class to the pokemon when we click on it or on another Pokemon
                     const actives = document.querySelectorAll('.picture-active');
                     actives.forEach(function (element) {
                         element.classList.remove("picture-active");
@@ -109,8 +114,10 @@ inputName.addEventListener('keyup', event => changeName(event.target.value, titl
             
         
 
+        //need to use AJAX because the call is POST
+        //send user data to list.php (what the user has submited)
         $.ajax({
-            url: 'http://lucielesbats.fr/Pokeder/api/list.php',
+            url: 'http://localhost/Pokeder/api/list.php',
             type: "POST",
             contentType: "application/json; charset=utf-8",
             dataType: "json",
@@ -129,6 +136,7 @@ inputName.addEventListener('keyup', event => changeName(event.target.value, titl
 
     };
 
+    //allow us to handle the form into JSON
     const form = document.getElementsByClassName('contact-form')[0];
     form.addEventListener('submit', handleFormSubmit);
 

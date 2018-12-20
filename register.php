@@ -2,6 +2,14 @@
     session_start();
     header('Content-type: text/html; charset=utf-8');
    
+    if(isset($_SESSION['id_user']))
+    {
+        
+        echo"<script language=\"javascript\">";
+        echo "alert('Already log')";
+        echo"</script>";
+        header('Location: ./result.php');
+    }
 ?>
 
 <!DOCTYPE html>
@@ -18,6 +26,12 @@
 </head>
 
 <body>
+<nav>
+<ul id="list">
+            <li><a href="./index.php">Home</a></li>
+            <li><a href="./log.php">Login</a></li>
+        </ul>
+    </nav>
     <main>
   
     <section class="content" id="content">
@@ -28,15 +42,15 @@
 
          <div class="contact-form__input-group divs">
                 <label class="contact-form__label label" for="firstname">Pseudo</label>
-                <input class="contact-form__input contact-form__input--text" id="pseudo" name="pseudo" type="text" />
+                <input class="contact-form__input contact-form__input--text" id="pseudo" name="pseudo" type="text" required/>
             </div>
             <div class="contact-form__input-group divs">
                 <label class="contact-form__label label" for="firstname">Firstname</label>
-                <input class="contact-form__input contact-form__input--text" id="firstname" name="firstname" type="text" />
+                <input class="contact-form__input contact-form__input--text" id="firstname" name="firstname" type="text" required/>
             </div>
             <div class="contact-form__input-group divs">
                 <label class="contact-form__label label" for="name">Name</label>
-                <input class="contact-form__input contact-form__input--text" id="name" name="name" type="text" />
+                <input class="contact-form__input contact-form__input--text" id="name" name="name" type="text" required />
             </div>
             <div class="contact-form__input-group divs">
                 <label for="gender" class="label">Gender</label>
@@ -49,17 +63,17 @@
                     <label for="female">Female</label>
                 </div>
             </div>
-            <div class="contact-form__input-group divs">
+            <div class="contact-form__input-group divs" style="margin-left:-1em;">
                 <label class="contact-form__label label" for="birthdate">Birthdate</label>
-                <input class="contact-form__input contact-form__input--text" id="birthdate" name="birthdate" type="date" />
+                <input class="contact-form__input contact-form__input--text" id="birthdate" name="birthdate" type="date" required />
             </div>
             <div class="contact-form__input-group divs">
                 <label class="contact-form__label label" for="email">E-mail</label>
-                <input class="contact-form__input contact-form__input--text" id="email" name="email" type="email" />
+                <input class="contact-form__input contact-form__input--text" id="email" name="email" type="email" required/>
             </div>
             <div class="contact-form__input-group divs">
                 <label class="contact-form__label label" for="pwd">Password</label>
-                <input class="contact-form__input contact-form__input--text" id="pwd" name="pwd" type="password" />
+                <input class="contact-form__input contact-form__input--text" id="pwd" name="pwd" type="password" required/>
             </div>
            
             <div class="contact-form__input-group divs" id="divFavorite">
@@ -72,7 +86,7 @@
             </div>
             <div class="contact-form__input-group divs">
                 <label class="contact-form__label label" for="pokeType">Pokemon's favorite type</label>
-                <select class="contact-form__input contact-form__input--select" id="pokeType" name="pokeType" multiple>
+                <select class="contact-form__input contact-form__input--select" id="pokeType" name="pokeType" required>
                 </select>
             </div>
             <button class="contact-form__button"  type="submit" name="submitButton" id="submitButton">SEND IT</button> 

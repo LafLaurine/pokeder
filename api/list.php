@@ -1,16 +1,21 @@
 <?php
 
-//header('Content-Type: application/json');
+header('Content-Type: application/json');
 session_start();
 require_once $_SERVER['DOCUMENT_ROOT']. '/Pokeder/includes/connexion.php';
 $db = connectBd();
 
+//The matter of this file is to match users between them : current user can check every user that likes the same pokemon type as him
 
+
+//Get what pokemonType the currentUser prefers
 function getCurrentUserType()
 {
+    //need to decode the json file to get this information
     $string = file_get_contents("../data/list_user.json");
     $array = json_decode($string, true);
     $tabUser = [];
+    //if we want to implement a multiple select it's better to do that
     foreach ($array as $user) {
         if ($user["pseudo"] == $_SESSION['pseudo'])
         {
@@ -30,21 +35,21 @@ if(isset($_GET))
     $userTypes = getCurrentUserType();
     $endTab = count($userTypes);
 
-    //array_filter($userTypes);
      //in order to check all types
     foreach ($array as $user) {
        
         $i=0;
         $find = false;
         while ($i<$endTab && !$find){
-        //parcours userTypes avec un while, 
-        //pour chaque string contenu dans tableau A, test avec tab i => parcours en while : condition arrêt :  soit parcouru tout tableau : 
-        //on sort et passe à autre user
-        //soit trouver elt avant la fin du tab 
+        // browse userTypes with a while,
+        // for each string contained in array A, test with tab i => while: condition stop: either traversed any array: go out and move on to another user
+        // OR : find elt before the end of the tab
 
             if ($user['pseudo'] !=  $_SESSION['pseudo'] && isset($user["pokeType"]) && in_array($userTypes[$i], $user["pokeType"]))
             {
-                $user["liked"] = false;//add champ booleen SI FONCTIONNE PAS ARRAY PUSH
+                //need to add a boolean here because we will use it to check if the user has been liked or not
+                $user["liked"] = false;
+                //get id_user_liked because we need to compare 
                 $q = "SELECT id_user FROM user WHERE pseudo=:pseudo";
                 $re = $db->prepare($q);
                 $re->bindParam('pseudo', $user['pseudo'] , PDO::PARAM_STR);
@@ -62,7 +67,7 @@ if(isset($_GET))
                     $user["liked"]=true;
                 }
 
-                //si vide pas like, else liked
+                //if empty array, we don't like, else liked
                 array_push($tab,$user);
                 $find = true;
             }
@@ -70,7 +75,6 @@ if(isset($_GET))
             $i++;
         }
         
-        //ajouter dans le tableau un champ like qui est un booleen pour pouvoir faire l'archivage
     }
     echo json_encode($tab);
 }
