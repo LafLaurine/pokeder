@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  jeu. 20 déc. 2018 à 11:39
+-- Généré le :  sam. 22 déc. 2018 à 09:20
 -- Version du serveur :  5.7.23
 -- Version de PHP :  7.2.10
 
@@ -43,7 +43,9 @@ CREATE TABLE IF NOT EXISTS `favorite` (
 INSERT INTO `favorite` (`id_user`, `id_user_liked`) VALUES
 (4, 1),
 (4, 2),
-(9, 8);
+(9, 8),
+(12, 3),
+(1, 4);
 
 -- --------------------------------------------------------
 
@@ -64,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `pokeFav` varchar(64) NOT NULL,
   `pokeType` varchar(64) NOT NULL,
   PRIMARY KEY (`id_user`)
-) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `user`
@@ -80,7 +82,10 @@ INSERT INTO `user` (`id_user`, `pseudo`, `pwd`, `firstname`, `name`, `email`, `g
 (7, 'Claclicla', '8df830a849e93985f1f647c0b1089223273720b037af5ecbcf25563f99ea34e8', 'Clarishka', 'Lalila', 'claclicladu77@laposte.net', 'female', '1897-02-03', 'arcanine', 'water'),
 (8, 'Zazar', 'a9556ef586ceb67948c507c04aa09ffa5cc2bb409090cfc6920ddf43f2f1829c', 'Zazar', 'Ouaouaron', 'orybaptiste@gmail.com', 'male', '1998-08-01', 'farfetchd', 'grass'),
 (9, 'GavéPlante', '4a7745aaf8c1a0bd18056159cd94f2c85b2fc544a356c9cae4a5518faff2b9bc', 'Plante', 'Plante', 'plante@plante.plante', 'female', '1452-01-15', 'oddish', 'grass'),
-(10, 'Lulu', 'c788cd1aa394b03ef75a74ed724aa55656f67b73401b5e222fae361c9c16f70e', 'Lulu', 'La tortue', 'lululatortue@mail.mail', 'female', '1212-12-12', 'ditto', 'ice');
+(10, 'Lulu', 'c788cd1aa394b03ef75a74ed724aa55656f67b73401b5e222fae361c9c16f70e', 'Lulu', 'La tortue', 'lululatortue@mail.mail', 'female', '1212-12-12', 'ditto', 'ice'),
+(11, 'Queen', '9834876dcfb05cb167a5c24953eba58c4ac89b1adf57f28f2f9d09af107ee8f0', 'Lafontaine', 'Laurine', 'c@o.fr', 'female', '1999-04-24', 'gengar', 'fire'),
+(12, 'ninadc', '110812f67fa1e1f0117f6f3d70241c1a42a7b07711a93c2477cc516d9042f9db', 'yhyhd', 'chyh', 'dcnin@a.fr', 'female', '2018-12-03', 'jigglypuff', 'flying'),
+(13, 'Mhite', 'ee4648b663a774abc90f73a31dde552c4c4a972523e72cbf9a87074e2a7908aa', 'Michel', 'YIP', 'wu.michel.yip@gmail.com', 'male', '1996-01-18', 'slowpoke', 'unknown');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
